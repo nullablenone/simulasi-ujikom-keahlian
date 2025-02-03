@@ -22,6 +22,10 @@ Route::get('/', [PenggunaController::class, 'index'])->name('pengguna.home');
 Route::get('/peminjaman', [PenggunaController::class, 'peminjaman'])->name('pengguna.peminjaman');
 Route::post('/peminjaman/{id}/inventaris', [PenggunaController::class, 'peminjamanInventaris'])->name('pengguna.peminjaman.inventaris');
 
+Route::get('/layout', function () {
+    return view('admin.layouts');
+});
+
 //admin
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('/inventaris', InventarisController::class);
